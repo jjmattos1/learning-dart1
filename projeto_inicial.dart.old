@@ -1,0 +1,51 @@
+import 'package:projeto_inicial/projeto_inicial.dart' as projeto_inicial;
+
+void main() {
+  print('Hello world: ${projeto_inicial.calculate()}!');
+  print('');
+    // https://medium.com/dart-school-by-kmranrg/chapter-3-type-casting-in-dart-76837475772a
+    // String to int
+    var one = int.parse('1');
+    print("1.");
+    print(one);
+    print(one.runtimeType);
+
+    // String to double
+    var onePointOne = double.parse('1.1');
+    print("\n2.");
+    print(onePointOne);
+    print(onePointOne.runtimeType);
+
+    // int to String
+    var twenty = 20.toString();
+    print("\n3.");
+    print(twenty);
+    print(twenty.runtimeType);
+
+    // double to String
+    var pi = 3.14316.toStringAsFixed(2);
+    print("\n4.");
+    print(pi);
+    print(pi.runtimeType);
+
+    // Creating five String variables with random names
+    String city = 'New York';
+    String country = 'USA';
+    String hobby = 'Reading';
+    String favoriteFood = 'Pizza';
+    String favoriteColor = 'Blue';
+
+    List<dynamic> dynamicList = [one, onePointOne, twenty, pi, city, country, hobby, favoriteFood, favoriteColor];
+    print('\n--- Teste de lista dinamica inicio ---\n');
+    print('\n$dynamicList\n');
+    print('\n--- Teste de lista dinamica fim ---\n');
+    
+    print('Testando acesso a posições na lista...\n');
+    print(dynamicList[1]);
+    print(dynamicList[3]);
+    // print(dynamicList[1]dynamicList[3]);
+    print('');
+    print(dynamicList.length);
+}
+
+//print('fora do codigo');
