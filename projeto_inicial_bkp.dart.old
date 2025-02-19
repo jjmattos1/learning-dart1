@@ -1,0 +1,57 @@
+  void main() {
+  print('Qualquer coisa');
+  print('');
+  int idade = 18;
+  print(idade);
+  print('');
+  double altura = 1.93;
+  print(altura);
+  print('');
+  // se pode receber valores hexadecimais
+  int idadeHexadecimal = 0x12;
+  print(idadeHexadecimal);
+  print('');
+  // se pode usar expoente matematico para representar numeros grandes, como 1.2e5
+  double alturaExpoente = 1.2e5;
+  print(alturaExpoente);
+  // usando o double para representar numeros fracionados, ele permite armazenar até 53 casa decimais
+  bool testeBooleano = true;
+  print('');
+  print(testeBooleano);
+  bool testeBooleano2 = ( alturaExpoente == idadeHexadecimal );
+  print('');
+  print(testeBooleano2);
+  print('');
+  String nome  = 'Jonas';
+  String sobrenome = 'Santos';
+  print('$nome $sobrenome');
+  print('');
+  print('Ola, meu nome é $nome $sobrenome');
+  print('');
+  print('Fazendo o print das variáveis em sequencia...'
+    'Nome: $nome\n'
+    'Sobrenome: $sobrenome\n'
+    'Idade: $idade\n'
+    'Altura: $altura\n'
+    'Altura com expoente: $alturaExpoente\n'
+    'Idade hexadecimal: $idadeHexadecimal\n'
+    'Teste booleano: $testeBooleano\n'
+    'Teste booleano 2: $testeBooleano2\n\n'
+  );
+  print('Novo teste');
+  print('');
+  print('');
+  String frase = 'Bloco de variáveis em sequencia inicio\n\n'
+    'Nome: $nome\n'
+    'Sobrenome: $sobrenome\n'
+    'Idade: $idade\n'
+    'Altura: $altura\n'
+    'Altura com expoente: $alturaExpoente\n'
+    'Idade hexadecimal: $idadeHexadecimal\n'
+    'Teste booleano: $testeBooleano\n'
+    'Teste booleano 2: $testeBooleano2\n\n'
+    'Bloco de variáveis em sequencia fim';
+    print(frase);
+    print('');
+    print('Testes de TypeCasting abaixo...');
+  }
