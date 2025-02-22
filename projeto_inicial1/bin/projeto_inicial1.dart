@@ -84,14 +84,157 @@ void main() {
   int idade = 27;
   double altura = 1.86;
   bool geek = true;
-List<dynamic> kako = [idade, altura, geek, nome, apelido];
+  List<dynamic> kako = [idade, altura, geek, nome, apelido];
+  bool maiorDeIdade;
+  int energia = 100;
 
-//Frase que recebe os dados diretamente da Lista
-String frase = 'Eu sou ${kako[4]}\n'
+  if (idade>= 18) {
+    maiorDeIdade = true;
+  }
+  else {
+    maiorDeIdade = false;
+  }
+
+  for (int i = 1 ; i <= 10 ; i = i+2) {
+    print('Conclui $i voltas.');
+  }
+
+print('');
+int contador = 1;
+
+print('- Repetição via while:');
+while (energia > 0) {
+  print('Mais uma repetição.. repetição $contador');
+  contador++;
+  energia = energia - 6;
+}
+
+contador = 1;
+energia = 100;
+print('');
+
+print('- Repetição via do-while:');
+do {
+  print('Mais uma repetição.. repetição $contador');
+  contador++;
+  energia = energia - 6;
+} while (energia > 0);
+
+  //Frase que recebe os dados diretamente da Lista
+  String frase = '\nEu sou ${kako[4]}\n'
    'mas meu nome completo é: ${kako[3]},\n'
    'eu me considero geek? ${kako[2]}.\n'
    'Eu tenho ${kako[1]} metros de altura e \n'
    '${kako[0]} anos de idade\n'
+   'sou maior de idade? $maiorDeIdade'
 ;
-print(frase);
+    
+print('\n- String frase contendo a lista kako:$frase');
+
+print('');
+
+// https://www.geeksforgeeks.org/dart-loop-control-statements-break-and-continue/
+
+print('\n- Usando break dentro do loop while (break rep 7):');
+
+contador = 1;
+
+while ( contador <= 10) {
+  print('Fulano, você está dentro do loop $contador!');
+  contador++;
+
+  if ( contador == 7) {
+    break;
+  }
+}
+print('Fulano, você está fora do loop!');
+
+print('\n- Usando break dentro do loop do-while (break rep 4):');
+
+contador = 1;
+
+do {
+  print('Fulano, você está no loop $contador');
+  contador++;
+
+  if ( contador == 4) {
+    break;
+  }
+} while ( contador <= 10 );
+print('Fulano, você está fora do loop!');
+
+print('\n- Usando break dentro do loop for (break rep 5):');
+
+contador = 1;
+
+//for (int i = 1 ; i <= 10 ; i = i+2)
+for (int i=0; i<=10; ++i) {
+  if (i==5) {
+    break;
+  }
+  print('Fulano, você está no loop $contador');
+}
+print('Fulano, você está fora do loop!');
+
+print('\n- Usando continue dentro do loop while (continue rep 3):');
+
+contador = 0;
+
+while (contador<5) {
+    contador++;
+  if (contador==3) {
+    print('Fulano, loop $contador foi pulado!');
+    continue;
+  }
+  print('Fulano, você está no loop $contador');
+
+  print('\n- Usando continue dentro do loop do-while (continue rep 8):');
+
+contador = 0;
+
+do {
+  contador++;
+  if (contador==8) {
+    print('Fulano, o loop $contador foi pulado!');
+    continue;
+  }
+  print('Fulano, você está no loop $contador');
+
+} while (contador<10);
+}
+
+  print('\n- Usando continue dentro do loop for (continue rep 3):');
+
+for (int i=1; i<=5; i++) {
+  if (i==3) {
+    print('Fulano, o loop $i foi pulado!');
+    continue;
+  }
+  print('Fulano, você está no loop $i!');
+}
+
+// Uso de switch-case no Dart é similar a outras linguagens:
+// https://medium.com/jay-tillu/switch-case-in-dart-136793092e6e
+
+// No IDE IntelliJ, usar a hotkey ctr+alt+l ele "organiza" o codigo, removendo
+// pulos de linha desnecessários por exemplo
+
+// Lembrar de comentar trechos de código relevates, quando voce cria um método por exemplo
+
+// Para comentar multiplas linhas selecionadas no VS Code, utilizar a hotkey shift+alt+a
+
+// TODO: Teste do TODO em comentários no VS Code
+
+// No IntelliJ, ao utilizar ///, a linha fica como um comentário destacado, tipo para uso
+// em documentações. Ao invés do comentário ficar cinza, ele fica verde.
+
+// No IntelliJ, existe a função de se comentar várias linhas de uma forma diferente:
+// /** comentario **/
+// Se fica entre dois ** mesmo.
+
+// Artigo sobre valores nulos e como usá-los: https://www.alura.com.br/artigos/flutter-null-safety
+// ler pelo menos 1x esse artigo antes de continuar o curso.
+
+
+// EOF
 }
