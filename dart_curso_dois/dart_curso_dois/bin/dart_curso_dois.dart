@@ -1,5 +1,7 @@
+import 'dart:io';
+
 void main() {
-  print('Olá mundo!\n\n');
+  //print('Olá mundo!\n\n');
   // Paradigmas de linguage de programação: https://blog.geekhunter.com.br/quais-sao-os-paradigmas-de-programacao/
   String nome = "Laranja";
   double peso = 100.2;
@@ -8,6 +10,7 @@ void main() {
   int diasDesdeColheita = 20;
   bool isMadura = funcEstaMadura(diasDesdeColheita);
 
+  print("bool isMadura ");
   print(isMadura);
   print("");
 
@@ -35,14 +38,47 @@ void main() {
     // cont...
 
     int quantosDias = funcQuantosDiasMadura(diasDesdeColheita);
+    print("Dias para amadurecer ");
     print(quantosDias);
+
+    print("\n\n");
+
+    print("showFruitInfo method... ");
+    //showFruitInfo(nome: "Laranja", peso: 100.2, diasDesdeColheita: 20, diasAmadurecer: 30);
+    //
+    toString(nome: "Laranja", peso: 100.2, diasDesdeColheita: 20);
 
 }
 
+String toString(
+    {required String nome,
+    required double peso,
+    required diasDesdeColheita,
+    int diasParaMadura = 30,
+    bool? isMadura}) {
+  if (isMadura == null) {
+    isMadura = diasDesdeColheita >= diasParaMadura;
+  }
+
+  String maduraString = "";
+  if (isMadura != null && !isMadura) {
+    maduraString = "não ";
+  }
+
+  String result =
+      "A $nome pesa $peso gramas! Ela foi colhida há  $diasDesdeColheita dias e precisa de  $diasParaMadura dias para amadurecer, logo, a $nome ${maduraString}está madura!";
+
+  return result;
+}
+
 // A Laranja pesa 98 gramas! Ela foi colhida há 30 dias e precisa de 20 para amadurecer, logo, a Laranja está madura!
-
-String showFruitInfo({required nome, required int peso, required int diasDesdeColheita}){
-
+String showFruitInfo({required nome, required double peso, required int diasDesdeColheita, required int diasAmadurecer}){
+  bool isMadura;
+  isMadura = diasDesdeColheita >= diasAmadurecer;
+  
+  String msg = "A $nome pesa $peso! Ela foi colhida há $diasDesdeColheita e precisa de $diasAmadurecer para amadurecer, logo, a $nome está madura? $isMadura";
+  
+  return msg;
 }
 
 int funcQuantosDiasMadura(int dias){
