@@ -169,7 +169,7 @@ contador = 1;
 
 //for (int i = 1 ; i <= 10 ; i = i+2)
 for (int i=0; i<=10; ++i) {
-  if (i==5) {
+  if (i==5) { 
     break;
   }
   print('Fulano, você está no loop $contador');

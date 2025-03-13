@@ -2,17 +2,19 @@ import 'dart:io';
 
 void main() {
   //print('Olá mundo!\n\n');
-  // Paradigmas de linguage de programação: https://blog.geekhunter.com.br/quais-sao-os-paradigmas-de-programacao/
+  // Paradigmas de linguagem de programação: https://blog.geekhunter.com.br/quais-sao-os-paradigmas-de-programacao/
+  
   String nome = "Laranja";
   double peso = 100.2;
   String cor = "Verde e Amarela";
   String sabor = "Doce e cítrica";
   int diasDesdeColheita = 20;
-  bool isMadura = funcEstaMadura(diasDesdeColheita);
+  //bool isMadura = funcEstaMadura(diasDesdeColheita);
 
+  /*
   print("bool isMadura ");
   print(isMadura);
-  print("");
+  print(""); */
 
   // Clean code, DRY. Dont Repeat Yourself. Evite repetir código!
   // Pensar sempre em criar funções caixa preta, para que elas mesmas resolvam da melhor forma o problema
@@ -37,18 +39,55 @@ void main() {
 
     // cont...
 
-    int quantosDias = funcQuantosDiasMadura(diasDesdeColheita);
+/*     int quantosDias = funcQuantosDiasMadura(diasDesdeColheita);
     print("Dias para amadurecer ");
     print(quantosDias);
 
-    print("\n\n");
+    print("\n\n"); */
 
-    print("showFruitInfo method... ");
-    //showFruitInfo(nome: "Laranja", peso: 100.2, diasDesdeColheita: 20, diasAmadurecer: 30);
-    //
-    toString(nome: "Laranja", peso: 100.2, diasDesdeColheita: 20);
+    /* print("toString method... ");
+    print(toString(nome: "Laranja", peso: 100.2, diasDesdeColheita: 20));
 
+    print("\n\nshowFruitInfo method...");
+    print(showFruitInfo(nome: "Laranja", peso: 100.2, diasDesdeColheita: 20, diasAmadurecer: 30)); */
+    
+    // começo sobre classes no Dart
+
+    Fruta fruta01 = Fruta(nome, peso, cor, sabor, diasDesdeColheita);
+    Fruta fruta02 = Fruta.nomeada(nome: "Uva", peso: 60.5, cor: "Roxa", sabor: "Doce", diasDesdeColheita: 40);
+
+    print(fruta01);
+    print(fruta01.nome);
+    
+    print("");
+
+    print(fruta02.cor);
+    print(fruta02);
+
+
+    // EOF
 }
+
+    class Fruta {
+      String nome;
+      double peso;
+      String cor;
+      String sabor;
+      int diasDesdeColheita;
+      bool? isMadura;
+
+      estaMadura(int diasParaMadura) {
+        isMadura = diasDesdeColheita >= diasParaMadura;
+        print("A fruta $nome foi colhida a $diasDesdeColheita. Como ela precisa de $diasParaMadura, ela está madura? $isMadura.");
+      }
+
+      Fruta(this.nome, this.peso, this.cor, this.sabor, this.diasDesdeColheita);
+
+      Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
+
+      // finalizando testes aula 03...
+
+    }
 
 String toString(
     {required String nome,
