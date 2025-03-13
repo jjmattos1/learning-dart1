@@ -85,6 +85,10 @@ void main() {
 
       Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
 
+     /*  Fruta.minusculas(this.nome, this.cor) {
+        nome = nome.toLowerCase();
+        cor = cor.toLowerCase();
+        } */
       // finalizando testes aula 03...
 
     }
