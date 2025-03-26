@@ -56,42 +56,82 @@ void main() {
     Fruta fruta01 = Fruta(nome, peso, cor, sabor, diasDesdeColheita);
     Fruta fruta02 = Fruta.nomeada(nome: "Uva", peso: 60.5, cor: "Roxa", sabor: "Doce", diasDesdeColheita: 40);
 
-    print(fruta01);
-    print(fruta01.nome);
-    
+    print(showFruitInfo(nome: "Banana", peso: 150, diasDesdeColheita: 20, diasAmadurecer: 30));
     print("");
+    print("${fruta01.nome} é $fruta01");
+    print("");
+    print("${fruta02.cor} é $fruta02");
+    print(fruta02.estaMadura(20));
 
-    print(fruta02.cor);
-    print(fruta02);
-
-
+    Alimento mandioca1 = Alimento("mandioca", "marrom", 500);
+    print('${mandioca1.nome} text ${mandioca1.cor}');
+    
+    
     // EOF
+    // relembrando.. shift+tab remove a identação na linha, ou nas linhas selecionadas. E pressionando somente o tab
+    // coloca um ponto de indentação na dada linha(s) selecionada(s).
 }
 
-    class Fruta {
-      String nome;
-      double peso;
-      String cor;
-      String sabor;
-      int diasDesdeColheita;
-      bool? isMadura;
+class Nozes {
+  //https://cursos.alura.com.br/course/dart-entendendo-orientacao-objetos/task/104864
+}
 
-      estaMadura(int diasParaMadura) {
-        isMadura = diasDesdeColheita >= diasParaMadura;
-        print("A fruta $nome foi colhida a $diasDesdeColheita. Como ela precisa de $diasParaMadura, ela está madura? $isMadura.");
-      }
+class Citricas {
+  // String nome, sabor, cor;
+  // double peso, nivelDeAzedo;
+  // int diasDesdeColheita;
+  // bool? isMadura;
+  String nome;
+  double peso;
+  String cor;
+  String sabor;
+  int diasDesdeColheita;
+  bool? isMadura;
+  double nivelDeAzedo;
 
-      Fruta(this.nome, this.peso, this.cor, this.sabor, this.diasDesdeColheita);
+  Citricas(this.nome,this.peso,this.cor,this.sabor,this.diasDesdeColheita,this.nivelDeAzedo);
 
-      Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
+}
 
-     /*  Fruta.minusculas(this.nome, this.cor) {
-        nome = nome.toLowerCase();
-        cor = cor.toLowerCase();
-        } */
-      // finalizando testes aula 03...
+class Legumes {
+  String nome, cor;
+  double peso;
+  bool isPrecisaCozihar;
 
-    }
+  Legumes(this.nome,this.cor,this.peso,this.isPrecisaCozihar);
+}
+
+class Alimento {
+  String nome, cor;
+  double peso;
+
+  Alimento(this.nome,this.cor,this.peso);
+}
+
+class Fruta {
+  String nome;
+  double peso;
+  String cor;
+  String sabor;
+  int diasDesdeColheita;
+  bool? isMadura;
+
+  estaMadura(int diasParaMadura) {
+    isMadura = diasDesdeColheita >= diasParaMadura;
+    print("A fruta $nome foi colhida a $diasDesdeColheita dias. Como ela precisa de $diasParaMadura dias para amadurecer, ela está madura? $isMadura.");
+  }
+
+  Fruta(this.nome, this.peso, this.cor, this.sabor, this.diasDesdeColheita);
+
+  Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
+
+  /*  Fruta.minusculas(this.nome, this.cor) {
+    nome = nome.toLowerCase();
+    cor = cor.toLowerCase();
+    } */
+  // finalizando testes aula 03...
+
+}
 
 String toString(
     {required String nome,
