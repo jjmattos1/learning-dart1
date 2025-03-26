@@ -67,6 +67,19 @@ void main() {
     print('${mandioca1.nome} text ${mandioca1.cor}');
     
     
+    // print(fruta02.cor);
+    // print(fruta02);
+
+    print("");
+
+    print(fruta01.estaMadura);
+
+    // usando o extends na classe, permite você configurar ela para receber os parametros de outra classe como herança
+    // desta forma, para inicializar o constutor desa classe, basta adicionar ao final do metodo
+    // construtor o codigo : super(argumetnos que inicializam o construtor em questão passar aqui no parenteses).
+    // E, lembrando, de colocar o tipo da variável no argumento do construtor, antes do super.
+
+    // para deixar varias linhas selecionadas como comentario, apertar ctrl+k+c!
     // EOF
     // relembrando.. shift+tab remove a identação na linha, ou nas linhas selecionadas. E pressionando somente o tab
     // coloca um ponto de indentação na dada linha(s) selecionada(s).
@@ -106,8 +119,28 @@ class Alimento {
   double peso;
 
   Alimento(this.nome,this.cor,this.peso);
+
+    Legumes mandioca1 = Legumes('Macaxeira', 1200, 'Marrom', true);
+    Fruta banana1 =Fruta('Banana', 75, 'Amarela', 'Doce', 15);
+
+    // parei em  05 Utilizando membros da Herança aos 12:45 desse video
 }
 
+    class Alimento {
+      String nome;
+      double peso;
+      String cor;
+      Alimento(this.nome,this.cor,this.peso);
+
+      void printAlimento(){
+        print('Este(a) $nome pesa $peso e é $cor.');
+      }
+    }
+
+    class Fruta extends Alimento {
+      String sabor;
+      int diasDesdeColheita;
+      bool? isMadura;
 class Fruta {
   String nome;
   double peso;
@@ -121,9 +154,15 @@ class Fruta {
     print("A fruta $nome foi colhida a $diasDesdeColheita dias. Como ela precisa de $diasParaMadura dias para amadurecer, ela está madura? $isMadura.");
   }
 
-  Fruta(this.nome, this.peso, this.cor, this.sabor, this.diasDesdeColheita);
+  Fruta(String nome, double peso, String cor, this.sabor, this.diasDesdeColheita, {this.isMadura}):super(nome,cor,peso);
 
-  Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
+  void fazerSuco(){
+        print('Você fez um ótimo suco $nome');
+      }
+
+}
+
+      // Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
 
   /*  Fruta.minusculas(this.nome, this.cor) {
     nome = nome.toLowerCase();
@@ -132,6 +171,76 @@ class Fruta {
   // finalizando testes aula 03...
 
 }
+
+    class Citricas extends Fruta {
+      double nivelAzedo;
+      Citricas(String nome, double peso, String cor, String sabor, int diasDesdeColheita, this.nivelAzedo)
+        :super(nome, peso, cor, sabor, diasDesdeColheita);
+      
+      void existeRefri(bool existe){
+        if(existe){
+          print('Existe refrigerante de $nome');
+        }else{
+          print('Não existe refri de $nome');
+        }
+      }
+    }
+
+    class Nozes extends Fruta {
+      double porcentagemOleoNatural;
+      Nozes(String nome, double peso, String cor, String sabor,int diasDesdeColheita, this.porcentagemOleoNatural)
+        :super(nome, peso, cor, sabor, diasDesdeColheita);
+    }
+
+    class Legumes extends Alimento {
+      bool isPrecisaCozinhar;
+      //double peso;
+      Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar):super(nome,cor,peso);
+
+      void cozinhar() {
+        if(isPrecisaCozinhar){
+          print('Pronto, o $nome está cozinhando!');
+        }else{
+          print('Nem precisa cozinhar!');
+        }
+      }
+
+    }
+
+    class Citricas extends Fruta {
+      double nivelAzedo;
+      Citricas(String nome, double peso, String cor, String sabor, int diasDesdeColheita, this.nivelAzedo)
+        :super(nome, peso, cor, sabor, diasDesdeColheita);
+      
+      void existeRefri(bool existe){
+        if(existe){
+          print('Existe refrigerante de $nome');
+        }else{
+          print('Não existe refri de $nome');
+        }
+      }
+    }
+
+    class Nozes extends Fruta {
+      double porcentagemOleoNatural;
+      Nozes(String nome, double peso, String cor, String sabor,int diasDesdeColheita, this.porcentagemOleoNatural)
+        :super(nome, peso, cor, sabor, diasDesdeColheita);
+    }
+
+    class Legumes extends Alimento {
+      bool isPrecisaCozinhar;
+      //double peso;
+      Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar):super(nome,cor,peso);
+
+      void cozinhar() {
+        if(isPrecisaCozinhar){
+          print('Pronto, o $nome está cozinhando!');
+        }else{
+          print('Nem precisa cozinhar!');
+        }
+      }
+
+    }
 
 String toString(
     {required String nome,
