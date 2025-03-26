@@ -85,47 +85,6 @@ void main() {
     // coloca um ponto de indentação na dada linha(s) selecionada(s).
 }
 
-class Nozes {
-  //https://cursos.alura.com.br/course/dart-entendendo-orientacao-objetos/task/104864
-}
-
-class Citricas {
-  // String nome, sabor, cor;
-  // double peso, nivelDeAzedo;
-  // int diasDesdeColheita;
-  // bool? isMadura;
-  String nome;
-  double peso;
-  String cor;
-  String sabor;
-  int diasDesdeColheita;
-  bool? isMadura;
-  double nivelDeAzedo;
-
-  Citricas(this.nome,this.peso,this.cor,this.sabor,this.diasDesdeColheita,this.nivelDeAzedo);
-
-}
-
-class Legumes {
-  String nome, cor;
-  double peso;
-  bool isPrecisaCozihar;
-
-  Legumes(this.nome,this.cor,this.peso,this.isPrecisaCozihar);
-}
-
-class Alimento {
-  String nome, cor;
-  double peso;
-
-  Alimento(this.nome,this.cor,this.peso);
-
-    Legumes mandioca1 = Legumes('Macaxeira', 1200, 'Marrom', true);
-    Fruta banana1 =Fruta('Banana', 75, 'Amarela', 'Doce', 15);
-
-    // parei em  05 Utilizando membros da Herança aos 12:45 desse video
-}
-
     class Alimento {
       String nome;
       double peso;
