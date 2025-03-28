@@ -54,25 +54,39 @@ void main() {
     // começo sobre classes no Dart
 
     Fruta fruta01 = Fruta(nome, peso, cor, sabor, diasDesdeColheita);
-    Fruta fruta02 = Fruta.nomeada(nome: "Uva", peso: 60.5, cor: "Roxa", sabor: "Doce", diasDesdeColheita: 40);
+    //Fruta fruta02 = Fruta.nomeada(nome: "Uva", peso: 60.5, cor: "Roxa", sabor: "Doce", diasDesdeColheita: 40);
 
     print(showFruitInfo(nome: "Banana", peso: 150, diasDesdeColheita: 20, diasAmadurecer: 30));
     print("");
     print("${fruta01.nome} é $fruta01");
     print("");
-    print("${fruta02.cor} é $fruta02");
-    print(fruta02.estaMadura(20));
+    // print("${fruta02.cor} é $fruta02");
+    // print(fruta02.estaMadura(20));
 
     Alimento mandioca1 = Alimento("mandioca", "marrom", 500);
     print('${mandioca1.nome} text ${mandioca1.cor}');
-    
-    
     // print(fruta02.cor);
-    // print(fruta02);
+    // print(fruta02);  
+    print("");
+    //print(fruta01.estaMadura);
 
     print("");
+    Legumes mandioca2 = Legumes("Macaxeira", 1200, "Marrom", true);
+    Fruta banana2 = Fruta("Banana", 120, "Amarela", "Doce", 15);
+    Nozes macadamia1 = Nozes("Macadâmia", 2, 'Branco Amarelado', 'Doce', 20, 35);
+    Citricas limao1 = Citricas('Limão', 5, "Verde", 'Azedo', 5, 9);
 
-    print(fruta01.estaMadura);
+    mandioca2.printAlimento();
+    banana2.printAlimento();
+    macadamia1.printAlimento();
+    limao1.printAlimento();
+ 
+    Citricas limao2 = Citricas.nomeada(nome: "Limão", peso: 5, cor: "Verde", sabor: "Azedo", diasDesdeColheita: 5, nivelAzedo: 9);
+    
+    limao2.printAlimento();
+    mandioca2.cozinhar();
+    limao1.fazerSuco();
+
 
     // usando o extends na classe, permite você configurar ela para receber os parametros de outra classe como herança
     // desta forma, para inicializar o constutor desa classe, basta adicionar ao final do metodo
@@ -100,18 +114,10 @@ void main() {
       String sabor;
       int diasDesdeColheita;
       bool? isMadura;
-class Fruta {
-  String nome;
-  double peso;
-  String cor;
-  String sabor;
-  int diasDesdeColheita;
-  bool? isMadura;
-
-  estaMadura(int diasParaMadura) {
-    isMadura = diasDesdeColheita >= diasParaMadura;
-    print("A fruta $nome foi colhida a $diasDesdeColheita dias. Como ela precisa de $diasParaMadura dias para amadurecer, ela está madura? $isMadura.");
-  }
+      estaMadura(int diasParaMadura) {
+        isMadura = diasDesdeColheita >= diasParaMadura;
+        print("A fruta $nome foi colhida a $diasDesdeColheita dias. Como ela precisa de $diasParaMadura dias para amadurecer, ela está madura? $isMadura.");
+      }
 
   Fruta(String nome, double peso, String cor, this.sabor, this.diasDesdeColheita, {this.isMadura}):super(nome,cor,peso);
 
@@ -129,47 +135,16 @@ class Fruta {
     } */
   // finalizando testes aula 03...
 
-}
+
 
     class Citricas extends Fruta {
       double nivelAzedo;
+      
       Citricas(String nome, double peso, String cor, String sabor, int diasDesdeColheita, this.nivelAzedo)
         :super(nome, peso, cor, sabor, diasDesdeColheita);
       
-      void existeRefri(bool existe){
-        if(existe){
-          print('Existe refrigerante de $nome');
-        }else{
-          print('Não existe refri de $nome');
-        }
-      }
-    }
-
-    class Nozes extends Fruta {
-      double porcentagemOleoNatural;
-      Nozes(String nome, double peso, String cor, String sabor,int diasDesdeColheita, this.porcentagemOleoNatural)
-        :super(nome, peso, cor, sabor, diasDesdeColheita);
-    }
-
-    class Legumes extends Alimento {
-      bool isPrecisaCozinhar;
-      //double peso;
-      Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar):super(nome,cor,peso);
-
-      void cozinhar() {
-        if(isPrecisaCozinhar){
-          print('Pronto, o $nome está cozinhando!');
-        }else{
-          print('Nem precisa cozinhar!');
-        }
-      }
-
-    }
-
-    class Citricas extends Fruta {
-      double nivelAzedo;
-      Citricas(String nome, double peso, String cor, String sabor, int diasDesdeColheita, this.nivelAzedo)
-        :super(nome, peso, cor, sabor, diasDesdeColheita);
+      Citricas.nomeada({required String nome, required double peso, required String cor, required String sabor, required int diasDesdeColheita, required this.nivelAzedo})
+      :super(nome, peso, cor, sabor, diasDesdeColheita);
       
       void existeRefri(bool existe){
         if(existe){
