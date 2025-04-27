@@ -94,8 +94,8 @@ void main() {
  E não o inverso como acontece atualmente!
 Nova linha aqui
  """);
-  // banana2.fazerMassa();
-  // banana2.assar();
+  banana2.fazerMassa();
+  banana2.assar();
 
   // escrever testes com classses abstratas e polimorfismo
 
@@ -133,7 +133,7 @@ class Alimento {
   Alimento(this.nome, this.cor, this.peso);
 
   void printAlimento() {
-    print('Este(a) $nome pesa $peso gramas e é $cor.');
+    print('\nEste(a) $nome pesa $peso gramas e é $cor.\n');
   }
 }
 
@@ -176,8 +176,7 @@ class Fruta extends Alimento implements Bolo {
   
   @override
   void separarIngredientes() {
-    // TODO: implement separarIngredientes
-  }
+    print("\nSeparar a farinha, leite, fermento e ovos!");
 }
 
 // Fruta.nomeada({required this.nome, required this.peso, required this.cor, required this.sabor, required this.diasDesdeColheita});
@@ -187,6 +186,7 @@ class Fruta extends Alimento implements Bolo {
     cor = cor.toLowerCase();
     } */
 // finalizando testes aula 03...
+}
 
 class Citricas extends Fruta {
   double nivelAzedo;
