@@ -11,10 +11,7 @@ void main() {
   //print(numeroUm!+numeroDois!);
   // aqui usando a dica de colocar o !, mas tambem precisa usar a funcao ".parse" para converter a string
   */
-  double numeroUm = double.parse(stdin.readLineSync()!);
-  double numeroDois = double.parse(stdin.readLineSync()!);
-  print(numeroUm+numeroDois);
-  print("\n\n");
+  //print(numeroUm+numeroDois);
   /* o Dart tem um tipo primitivo chamado de rune (risos), ele é o mesmo que um tipo char em outra linguagem
   serve para armazenar apenas um caractere (um único caractere, como 'a', 'B' ou '3'). */
   /* Tipos compostos:
@@ -28,6 +25,37 @@ void main() {
   print(numerosUnicos); // Saída: {1, 2, 3, 4}
   */
   
+  print("Selecione uma das opções (+, -, *, /): ");
+  var operacao = stdin.readLineSync();
+  var resultado;
 
+  print("Digite o primeiro número: ");
+  var numeroUm = double.parse(stdin.readLineSync()!);
+  print("Digite o segundo número: ");
+  var numeroDois = double.parse(stdin.readLineSync()!);
 
+  void soma() {
+    resultado = numeroUm + numeroDois;
+  }
+  void subtracao() {
+    resultado = numeroUm - numeroDois;
+  }
+  void multiplicacao() {
+    resultado = numeroUm * numeroDois;
+  }
+  void divisao() {
+    resultado = numeroUm / numeroDois;
+  }
+
+  if (operacao == "+") {
+    soma();
+  } else if (operacao == "-") {
+    subtracao();
+  } else if (operacao == "*") {
+    multiplicacao();
+  } else if (operacao == "/") {
+    divisao();
+  }
+  print("O resultado é: $resultado");
+  //print("\n");
 }
