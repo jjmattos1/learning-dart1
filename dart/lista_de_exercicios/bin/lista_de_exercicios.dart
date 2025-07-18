@@ -1,4 +1,5 @@
 // Alura Dart: trabalhando com a sintaxe e configuração de projeto, seção 2 item 10.
+import 'dart:developer';
 import 'dart:io';
 
 void main() {
@@ -119,7 +120,116 @@ void main() {
 
           case '5':
           print("\n\nVocê escolheu a opção 5.\n");
+          stdout.write("Corrigir o código abaixo (original está comentado):\n");
+          stdout.write("");
 
+          /*
+
+          Você está trabalhando em um programa de banco, que faz três ações:
+
+          Mostrar o saldo bancário do usuário;
+          Permitir que o usuário faça uma transferência pix (de forma simplificada);
+          Subtrair o valor do pix do valor de saldo.
+          No entanto, o código possui erros. Analise-o com atenção:
+
+          import 'dart:io';
+
+          string saldo = 1000.0; // Saldo inicial em reais
+
+          void main() {
+            print('Boas-vindas ao seu banco digital!')
+            print('Seu saldo atual é de: R\$${saldo.toStringAsFixed(2)}')
+
+            print('Digite o valor do Pix que deseja realizar:');
+            double valorPix = double.parse(stdin.readLineSync());
+
+            saldo -= valorPix;
+
+            print('Pix realizado com sucesso!')
+            print('Seu saldo atual é de: R\$${saldo.toStringAsFixed(2)}');
+          }
+
+          */
+
+          double saldo = 1000.0; // Saldo inicial em reais
+          print('Boas-vindas ao seu banco digital!');
+          print('Seu saldo atual é de: R\$${saldo.toStringAsFixed(2)}');
+          print('Digite o valor do Pix que deseja realizar:');
+          double valorPix = double.parse(stdin.readLineSync()!);
+          saldo -= valorPix;
+          print('Pix realizado com sucesso!');
+          print('Seu saldo atual é de: R\$${saldo.toStringAsFixed(2)}');
+          print("\nPressione qualquer tecla para voltar ao menu!");
+          stdin.readLineSync();
+          break;
+
+          case '6':
+          print("\n\nVocê escolheu a opção 6.\n");
+          stdout.write("");
+          double pontosIniciais = 100;
+          double pontosRetirados;
+
+          //print("Você tem $pontos pontos.");
+          print("Você tem $pontosIniciais pontos.");
+          stdout.write("Quantos pontos você gostaria de resgatar? ");
+          pontosRetirados = double.parse(stdin.readLineSync()!);
+          
+          double pontosRestantes = pontosIniciais - pontosRetirados;
+
+          print("Você resgatou $pontosRetirados pontos. Pontos restantes: $pontosRestantes");
+          print("\nPressione qualquer tecla para voltar ao menu!");
+          stdin.readLineSync();
+          break;
+
+          case '7':
+          print("\n\nVocê escolheu a opção 7.");
+          stdout.write("");
+          double pontosIniciais = 100;
+          double pontosRetirados;
+
+          print("Você tem $pontosIniciais pontos.");
+          stdout.write("Quantos pontos você gostaria de resgatar? ");
+          pontosRetirados = double.parse(stdin.readLineSync()!);
+          
+          // double pontosRestantes = pontosIniciais - pontosRetirados;
+
+          double? pontosRestantesFora;
+          void resgatePontos() {
+            double pontosRestantes = pontosIniciais - pontosRetirados;
+            pontosRestantesFora = pontosRestantes;
+            return;
+
+          }
+
+          resgatePontos();
+
+          print("Você resgatou $pontosRetirados pontos. Pontos restantes: $pontosRestantesFora");
+
+          print("\nPressione qualquer tecla para voltar ao menu!");
+          stdin.readLineSync();
+          break;
+
+          case '8':
+          print("\n\nVocê escolheu a opção 8.");
+          print("\nSeja bem-vindo ao mercado No Precinho!\n");
+          stdout.write("Para que seja calculado quantos cupons você ganhou, digite o valor de sua compra: ");
+          double? valorGasto;
+          valorGasto = double.parse(stdin.readLineSync()!);
+
+          if (valorGasto > 0) {
+            int tickets = (valorGasto / 50).floor();
+            print("Parabéns! Você ganhou $tickets cupons.");
+          } 
+          else if (valorGasto == 0) {
+            print("Você precisa efetuar alguma compra!");
+          }
+          else {
+            print("Você precisa efetuar alguma compra!");
+          }
+
+          print("\nPressione qualquer tecla para voltar ao menu!");
+          stdin.readLineSync();
+          break;
 
         default:
           print("Opção inválida.");
