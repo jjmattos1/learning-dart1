@@ -182,13 +182,12 @@ void main() {
           break;
 
           case '7':
-          print("\n\nVocê escolheu a opção 7.");
-          stdout.write("");
+          print("\n\nVocê escolheu a opção 7. Refatorando o código anterior...");
+          stdout.write("\n");
           double pontosIniciais = 100;
           double pontosRetirados;
 
-          print("Você tem $pontosIniciais pontos.");
-          stdout.write("Quantos pontos você gostaria de resgatar? ");
+          stdout.write("Você tem $pontosIniciais pontos. Quantos pontos você gostaria de resgatar? ");
           pontosRetirados = double.parse(stdin.readLineSync()!);
           
           // double pontosRestantes = pontosIniciais - pontosRetirados;
@@ -203,7 +202,7 @@ void main() {
 
           resgatePontos();
 
-          print("Você resgatou $pontosRetirados pontos. Pontos restantes: $pontosRestantesFora");
+          print("\nVocê resgatou $pontosRetirados pontos. Pontos restantes: $pontosRestantesFora");
 
           print("\nPressione qualquer tecla para voltar ao menu!");
           stdin.readLineSync();

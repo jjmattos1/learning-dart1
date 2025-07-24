@@ -1,4 +1,5 @@
 import 'dart:io';
+import "calc-v2.dart";
 
 void main() {
   /* primeiros testes...
@@ -24,7 +25,10 @@ void main() {
   Set<int> numerosUnicos = {1, 2, 3, 4, 3}; // O número 3 só aparece uma vez
   print(numerosUnicos); // Saída: {1, 2, 3, 4}
   */
-  
+
+  // CRIAR VALIDAÇÕES NOS CAMPOS DE ESCOLHA DE OPÇÕES!! Ver orientações em https://cursos.alura.com.br/course/dart-trabalhando-sintaxe-configuracao-projeto/task/166221
+
+    void calcV1() {
   print("Selecione uma das opções (+, -, *, /): ");
   var operacao = stdin.readLineSync();
   var resultado;
@@ -58,4 +62,22 @@ void main() {
   }
   print("O resultado é: $resultado");
   //print("\n");
+}
+
+  print("\nCalculadoras!\n");
+
+  print('1. Calculadora V1 if else');
+  print('2. Calculadora V2 switch case');
+  stdout.write("\nSelecione uma das versões da calculadora: ");
+  int MenuOp = int.parse(stdin.readLineSync()!);
+
+  if (MenuOp == 1) {
+    calcV1();
+  } else if (MenuOp == 2) {
+    calcV2();
+  } 
+  else {
+    print("Opção inválida.");
+  }
+
 }
