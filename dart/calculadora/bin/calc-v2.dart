@@ -2,7 +2,7 @@ import 'dart:io';
 
 void calcV2() {
 
-print("Calculadora V2, pressione qualquer tecla para proseguir... \n");
+print("Calculadora V2, pressione qualquer tecla para proseguir... \n\n");
 stdin.readLineSync();
 
 double numeroUmV2 = 0;

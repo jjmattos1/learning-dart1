@@ -1,4 +1,3 @@
-// Alura Dart: trabalhando com a sintaxe e configuração de projeto, seção 2 item 10.
 import 'dart:developer';
 import 'dart:io';
 
@@ -123,6 +122,7 @@ void main() {
           stdout.write("Corrigir o código abaixo (original está comentado):\n");
           stdout.write("");
 
+         
           /*
 
           Você está trabalhando em um programa de banco, que faz três ações:
