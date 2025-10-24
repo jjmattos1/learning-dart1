@@ -118,6 +118,58 @@ void ex3() {
 
 //ex3();
 
-// falta fazer o exercício 4, verificando a maioridade em diferentes paises.
+void ex4() {
 
-}
+  int age,countryInt = 0;
+
+  stdout.writeln("\nExercício 4 -  Idade mínima para dirigir carros em diferentes países\n");
+  
+  do {
+    stdout.write("Digite a sua idade: ");
+    age = int.parse(stdin.readLineSync()!);
+
+    if (age <= 0) {
+      stdout.writeln("\nIdade inválida! Tente novamente...\n");
+    }
+  } while (age <= 0);
+
+  do {
+    stdout.write("Digite o número do seu país (1 Brasil, 2 EUA e 3 Japão): ");
+    countryInt = int.parse(stdin.readLineSync()!);
+    stdout.write("\n");
+
+    if (countryInt == 1) {
+    if (age >= 18) {
+      stdout.writeln("Você pode dirigir no Brasil!");
+    } else {
+      stdout.writeln("Você não pode dirigir no Brasil!");
+    }
+  } else if (countryInt == 2 ) {
+      if (age >= 16) {
+        stdout.writeln("Você pode dirigir nos EUA!");
+      } else {
+        stdout.writeln("Você não pode dirigir nos EUA!");
+      }
+      }
+    else if (countryInt == 3) {
+      if (age >= 18) {
+        stdout.writeln("Você pode dirigir no Japão!");
+      } else {
+        stdout.writeln("Você não pode dirigir no Japão!");
+      }
+    } else {
+      stdout.writeln("País inválido!\n");
+    }
+
+  } while (countryInt != 1 && countryInt != 2 && countryInt != 3);
+
+    stdout.write("\nPressione qualquer tecla para encerrar...");
+    stdin.readLineSync();
+
+  } 
+  
+  print("=== xxx ===");
+
+ex4();
+
+} 

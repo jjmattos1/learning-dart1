@@ -1,0 +1,109 @@
+1) Calculando idade para carteira de motorista
+
+import 'dart:io';
+
+void main() {
+  print('Digite sua idade:');
+  int idade = int.parse(stdin.readLineSync()!);
+
+  if (idade >= 18) {
+    print('Você pode dirigir um veículo.');
+  } else {
+    print('Você não pode dirigir um veículo.');
+  }
+}
+
+2) Retornando os meses do ano
+
+import 'dart:io';
+
+void main() {
+  print('Digite um número de 1 a 12 para saber o mês correspondente:');
+  String? input = stdin.readLineSync();
+
+  // Null safety e conversão de entrada
+  int numero = int.parse(input!);
+
+  // Função que retorna o mês correspondente
+  String obterMes(int numero) {
+    switch (numero) {
+      case 1:
+        return 'Janeiro';
+      case 2:
+        return 'Fevereiro';
+      case 3:
+        return 'Março';
+      case 4:
+        return 'Abril';
+      case 5:
+        return 'Maio';
+      case 6:
+        return 'Junho';
+      case 7:
+        return 'Julho';
+      case 8:
+        return 'Agosto';
+      case 9:
+        return 'Setembro';
+      case 10:
+        return 'Outubro';
+      case 11:
+        return 'Novembro';
+      case 12:
+        return 'Dezembro';
+      default:
+        return 'Número inválido. Por favor, insira um número de 1 a 12.';
+    }
+  }
+
+  String mes = obterMes(numero);
+  print(mes);
+}
+
+3) Implementando a verificação de saldo
+
+import 'dart:io';
+double saldo = 1000.0; // Saldo inicial em reais
+
+void main() {
+  print('Boas-vindas ao seu banco digital!');
+  print('Seu saldo atual é de: R\$${saldo.toStringAsFixed(2)}');
+
+  print('Digite o valor do Pix que deseja realizar:');
+  double valorPix = double.parse(stdin.readLineSync()!);
+
+  realizarPix(valorPix);
+}
+
+// Definição da função realizarPix para que o código seja funcional
+void realizarPix(double valor) {
+  if (valor <= saldo) {
+    saldo -= valor;
+    print('Pix de R\$${valor.toStringAsFixed(2)} realizado com sucesso.');
+    print('Seu novo saldo é de: R\$${saldo.toStringAsFixed(2)}');
+  } else {
+    print('Saldo insuficiente para realizar o Pix.');
+  }
+}
+
+4) Verificando a maioridade em diferentes países
+
+import 'dart:io';
+
+void main() {
+  print('Digite sua idade:');
+  int idade = int.parse(stdin.readLineSync()!);
+
+  print('Digite o país em que se encontra (Brasil, EUA, Japão):');
+  String pais = stdin.readLineSync()!.toLowerCase();
+
+  if ((pais == 'brasil' && idade >= 18) || 
+      (pais == 'eua' && idade >= 16) || 
+      (pais == 'japão' && idade >= 20)) {
+    print('Você pode dirigir um veículo no $pais.');
+  } else {
+    print('Você não pode dirigir um veículo no $pais.');
+  }
+}
+
+x

@@ -28,10 +28,18 @@ void main() {
 
   // CRIAR VALIDAÇÕES NOS CAMPOS DE ESCOLHA DE OPÇÕES!! Ver orientações em https://cursos.alura.com.br/course/dart-trabalhando-sintaxe-configuracao-projeto/task/166221
 
+// refatorar código seguindo orientação do link https://cursos.alura.com.br/course/dart-trabalhando-sintaxe-configuracao-projeto/task/164854
+
     void calcV1() {
-  print("Selecione uma das opções (+, -, *, /): ");
-  var operacao = stdin.readLineSync();
-  var resultado;
+
+  var resultado, operacao = "";
+
+  void getOperacao {
+
+          print("Selecione uma das opções (+, -, *, /): ");
+          var operacao = stdin.readLineSync();
+
+  }
 
   print("Digite o primeiro número: ");
   var numeroUm = double.parse(stdin.readLineSync()!);
