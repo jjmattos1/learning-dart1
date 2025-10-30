@@ -167,9 +167,39 @@ void ex4() {
     stdin.readLineSync();
 
   } 
-  
-  print("=== xxx ===");
 
-ex4();
+  String? userChoice;
+  do {
+    print("\n=== Lista de Exercícios ===");
+    print("1. Calculando idade para carteira de motorista");
+    print("2. Retornando os meses do ano");
+    print("3. Implementando a verificação de saldo");
+    print("4. Verificando a maioridade em diferentes países");
+    print("0. Sair");
+    stdout.write("\nEscolha um exercício (ou 0 para sair): ");
+
+    userChoice = stdin.readLineSync();
+
+    switch (userChoice) {
+      case '1':
+        ex1();
+        break;
+      case '2':
+        ex2();
+        break;
+      case '3':
+        ex3();
+        break;
+      case '4':
+        ex4();
+        break;
+      case '0':
+        print("Encerrando o programa.");
+        break;
+      default:
+        print("Opção inválida! Tente novamente.");
+        break;
+    }
+  } while (userChoice != '0');
 
 } 

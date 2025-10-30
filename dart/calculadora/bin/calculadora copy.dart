@@ -39,9 +39,9 @@ void main() {
   String entrada = "";
   List<String> operacoes = <String>["+", "-", "*", "/"];
 
-  void  getOperacao() {
+  void  getOperacao () {
 
-    print("Digite uma operação ${operacoes.toString()}");
+    print("Selecione uma das opções (+, -, *, /): ");
     entrada = stdin.readLineSync()!;
 
     if (operacoes.contains(entrada)) {
@@ -52,46 +52,27 @@ void main() {
     }
   }
 
-void getNumeroUm() {
-
   print("Digite o primeiro número: ");
-  
   String? entrada1 = stdin.readLineSync();
-
-  if (entrada1 != null && entrada1.isNotEmpty) {
-    final parsedNumber = double.tryParse(entrada1);
-    if (parsedNumber != null) {
-      numeroUm = parsedNumber;
+  if (entrada1 != null) {
+    if (entrada1 != "") {
+      numeroUm = double.parse(entrada1);
     } else {
-      print("Entrada inválida! Por favor, digite um número.");
-      getNumeroUm();
+      print("Número inválido!");
+      getOperacao();
     }
-  } else {
-    print("Número inválido! A entrada não pode ser vazia.");
-    getNumeroUm();
-  }
-}
-
-void getNumeroDois() {
+    }
 
   print("Digite o segundo número: ");
-  
   String? entrada2 = stdin.readLineSync();
-  
   if (entrada2 != null) {
-    final parsedNumber = double.tryParse(entrada2);
-    if (parsedNumber != null) {
-      numeroDois = parsedNumber;
+    if (entrada2 != "") {
+      numeroDois = double.parse(entrada2);
     } else {
-      print("Entrada inválida! Por favor, digite um número.");
-      getNumeroDois();
+      print("Número inválido!");
+      getOperacao();
     }
-  } else {
-    print("Número inválido! A entrada não pode ser vazia.");
-    getNumeroDois();
   }
-
-}
 
   void soma() {
     resultado = numeroUm + numeroDois;
@@ -106,35 +87,23 @@ void getNumeroDois() {
     resultado = numeroUm / numeroDois;
   }
 
-  void calcular() {
-    switch (operacao) {
-      case '+':
-        soma();
-        break;
-      case '-':
-        subtracao();
-        break;
-      case '*':
-        multiplicacao();
-        break;
-      case '/':
-        divisao();
-        break;
-    }
-  }
-
-  getNumeroUm();
-  getOperacao();
-  getNumeroDois();
-  calcular();
+   if (operacao == "+") {
+     soma();
+   } else if (operacao == "-") {
+     subtracao();
+   } else if (operacao == "*") {
+     multiplicacao();
+   } else if (operacao == "/") {
+     divisao();
+   }
 
   print("O resultado é: $resultado");
   //print("\n");
 }
 
-  // calcV3 () {
-  //   // criar função aqui!
-  // }
+  calcV3 () {
+    // criar função aqui!
+  }
 
   print("\nCalculadoras!\n");
 
@@ -148,9 +117,9 @@ void getNumeroDois() {
     calcV1();
   } else if (MenuOp == 2) {
     calcV2();
-  } /* else if (MenuOp == 3) {
-    calcV3(); 
-  } */
+  } else if (MenuOp == 3) {
+    calcV3();
+  }
   else {
     print("Opção inválida.");
   }
