@@ -8,7 +8,7 @@ void main() {
     String? entrada;
 
     print('\nDigite um comando da listagem abaixo (um dos números):\n');
-    stdout.write('1 - Inserir nota, 2 - Listar notas, 3 - Sair\n');
+    stdout.write('1 - Inserir nota, 2 - Listar notas, 3 - Imprimir números (corrigir return), 4 - Mostrar nomes, 5 - Em busca da parada (incompleto), 6 - Sair\n');
     stdout.write("Opção: ");
 
     entrada = stdin.readLineSync();
@@ -98,16 +98,16 @@ void main() {
         listaNotas(notas);
         break;
       case "3":
-        print('Até mais!\n');
-        break;
-      case "4":
         a5_lex1();
         break;
-      case "5":
+      case "4":
         a5_lex2();
         break;
-      case "6":
+      case "5":
         a5_lex3();
+        break;
+      case "6":
+        print('Até mais!\n');
         break;
 
 
